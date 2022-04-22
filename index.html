@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.js"
+        integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="shortcut icon" type="image/x-icon"
+        href="https://marketing.clubworldgroup.com/projects/Reusables/favicons/agc/favicon.ico" />
+</head>
+
+<body onload="onload()">
+    <div id="container">
+        <!--LoadingScreen-->
+        <div id="loading-screen">
+            <div id="loading-image">
+                <h1>Loading</h1><span class="one">.</span><span class="two">.</span><span class="three">.</span>
+            </div>
+        </div>
+        <!--TitleScreen-->
+        <div id="title-screen">
+            <div id="casinoLogo">
+                <img src="https://marketing.clubworldgroup.com/projects/Reusables/logos/standard/agc-logo.png">
+            </div>
+            <div id="gameLogo">
+                <img src="https://via.placeholder.com/350x400" alt="gameLogo">
+            </div>
+            <!--CTA-->
+            <button id="playBtn" class="playbtn">
+                Play Game
+            </button>
+            <button id="htpBtn" class="htpBtn">
+                How to Play
+            </button>
+        </div>
+        <!--HowtoScreen-->
+        <div id="how-to-screen">
+            <h1>How to Play</h1>
+            <div id="howTo">
+                <img src="https://via.placeholder.com/600x300" alt="howToGif">
+            </div>
+            <p class="main">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas quis venenatis erat.
+                Pellentesque quis tincidunt est, non hendrerit nunc. Fusce vitae velit et sapien venenatis gravida sit
+                amet vel augue. In porta quis sem a imperdiet. Etiam rhoncus eget eros eu consectetur.</p>
+            <button id="htpPlay" class="howTo">
+                Play Game
+            </button>
+        </div>
+        <!--GamePlay-->
+        <div id="game-play-screen">
+        </div>
+    </div>
+
+    <!--Script-->
+    <script>
+        // GA
+        function sendGaEvent(e) {
+            gtag('event', e, {
+                'event_category': 'Example Button',
+                'event_label': 'Example page'
+            });
+        }
+        let spin = false;
+        // Loading Screen
+        window.onload = function () {
+            setTimeout(function () {
+                $("#loading-screen").fadeOut(300);
+                setTimeout(function () {
+                    $("#title-screen").fadeIn(300);
+                }, 1000)
+            }, 2500);
+        };
+        // How to Screen
+        $("#htpBtn").click(function () {
+            $("#title-screen").fadeOut(300);
+            setTimeout(function () {
+                $("#how-to-screen").fadeIn(300);
+            }, 1000);
+        });
+        // To Game
+        $("#playBtn").click(function () {
+            $("#title-screen").fadeOut(300);
+            setTimeout(function () {
+                gamePlay();
+            }, 1000);
+        });
+        // To Game from HTP
+        $("#htpPlay").click(function () {
+            $("#how-to-screen").fadeOut(300);
+            setTimeout(function () {
+                gamePlay();
+            }, 1000);
+        });
+
+        //GamePlay
+        function gamePlay() {
+            console.log('working');
+        }
+    </script>
+</body>
+
+</html>
